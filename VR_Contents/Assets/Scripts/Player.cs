@@ -10,12 +10,16 @@ public class Player : MonoBehaviour {
     public float z;
     public float rotaF;
 
+    public GameObject simplebullet;
+    GameObject hassyakou;//バルカン発射口？
+
     public GameObject cameraObject;
 
 	// Use this for initialization
 	void Start ()
     {
         cameraObject = GameObject.Find("Main Camera");
+        hassyakou = transform.FindChild("hassyakou").gameObject;
 
         transform.localPosition = Vector3.zero;
 
@@ -62,6 +66,15 @@ public class Player : MonoBehaviour {
             cameraObject.transform.Rotate(cameraObject.transform.rotation.x + Input.GetAxis("Vertical"), cameraObject.transform.rotation.y/* + Input.GetAxis("Horizontal")*/, cameraObject.transform.rotation.z + Input.GetAxis("Horizontal"));
             //cameraObject.transform.Rotate(cameraObject.transform.rotation.x + Input.GetAxis("Vertical"), cameraObject.transform.rotation.y + Input.GetAxis("Horizontal"), cameraObject.transform.rotation.z);
 
+            simplebullet_fire();
         }
 	}
+
+    void simplebullet_fire() //バルカン？
+    {
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            Instantiate(simplebullet, hassyakou.transform.position, hassyakou.transform.rotation);
+        }
+    }
 }
