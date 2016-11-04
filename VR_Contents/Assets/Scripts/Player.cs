@@ -72,7 +72,7 @@ public class Player : MonoBehaviour {
 
     void simplebullet_fire() //バルカン？
     {
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Instantiate(simplebullet, hassyakou.transform.position, hassyakou.transform.rotation);
         }
