@@ -16,7 +16,7 @@ public class simple_bullet_SC : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.Translate(0, 0, speed);
-        if (transform.position.z - z >= 300 || transform.position.z - z <= -300)
+        if (transform.position.z - z >= speed * lifetime)
         {
             Destroy(this.gameObject);
         }

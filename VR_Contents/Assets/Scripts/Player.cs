@@ -13,6 +13,9 @@ public class Player : MonoBehaviour {
     public GameObject simplebullet;
     GameObject hassyakou;//バルカン発射口？
 
+    private int stayFire;
+    public int stayTime = 20;
+
     public GameObject cameraObject;
 
 	// Use this for initialization
@@ -26,6 +29,8 @@ public class Player : MonoBehaviour {
         x = this.transform.position.x;
         y = this.transform.position.y;
         z = this.transform.position.z;
+
+        stayFire = stayTime;
     }
 	
 	// Update is called once per frame
@@ -66,15 +71,21 @@ public class Player : MonoBehaviour {
             cameraObject.transform.Rotate(cameraObject.transform.rotation.x + Input.GetAxis("Vertical"), cameraObject.transform.rotation.y/* + Input.GetAxis("Horizontal")*/, cameraObject.transform.rotation.z + Input.GetAxis("Horizontal"));
             //cameraObject.transform.Rotate(cameraObject.transform.rotation.x + Input.GetAxis("Vertical"), cameraObject.transform.rotation.y + Input.GetAxis("Horizontal"), cameraObject.transform.rotation.z);
 
+            if (stayFire < stayTime)
+            {
+                stayFire++;
+            }
+
             simplebullet_fire();
         }
 	}
 
     void simplebullet_fire() //バルカン？
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKey(KeyCode.Mouse0) && stayFire == stayTime)
         {
             Instantiate(simplebullet, hassyakou.transform.position, hassyakou.transform.rotation);
+            stayFire = 0;
         }
     }
 }
