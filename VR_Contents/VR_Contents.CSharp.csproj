@@ -136,6 +136,7 @@
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\SetFrameRate.cs" />
+    <Compile Include="Assets\Scripts\ShowFPS.cs" />
     <Compile Include="Assets\Scripts\simple_bullet_SC.cs" />
   </ItemGroup>
   <ItemGroup>
