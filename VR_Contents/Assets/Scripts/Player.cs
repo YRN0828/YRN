@@ -68,6 +68,7 @@ public class Player : MonoBehaviour {
         {
             speed = 0;
             start = false;
+            GameObject.Find("CreateComet").GetComponent<CreateComet>().startTF = false;
 
         }
         else
