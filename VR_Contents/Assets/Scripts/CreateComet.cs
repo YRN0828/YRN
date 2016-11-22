@@ -16,8 +16,6 @@ public class CreateComet : MonoBehaviour {
 
     public bool startTF = false;
 
-    public bool end = false;
-
 	// Use this for initialization
 	void Start () {
         comet_ = GameObject.Find("Comet_");
@@ -25,7 +23,7 @@ public class CreateComet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(end == false)
+        if(cometCount < mkInt)
         {
             for (int i = 0; i < mkSpeed; i++) //mkSpeed個生成
             {
@@ -36,11 +34,13 @@ public class CreateComet : MonoBehaviour {
 
                 if(cometCount >= mkInt)
                 {
-                    end = true;
-                    startTF = true;
                     break;
                 }
             }
+        }
+        else
+        {
+            startTF = true;
         }
 	}
 }
