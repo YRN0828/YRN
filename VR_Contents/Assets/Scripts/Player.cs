@@ -66,13 +66,8 @@ public class Player : MonoBehaviour {
     {
         if(collision.gameObject.name == "SComet(Clone)")
         {
-            speed = 0;
             start = false;
-
-        }
-        else
-        {
-
+            GameObject.Find("CreateComet").GetComponent<CreateComet>().startTF = false;
         }
     }
 }

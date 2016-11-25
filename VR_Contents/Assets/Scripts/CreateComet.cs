@@ -15,6 +15,7 @@ public class CreateComet : MonoBehaviour {
     public float spawnPoint;
 
     public bool startTF = false;
+    private bool start = false;
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +24,7 @@ public class CreateComet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(cometCount < mkInt)
+        if (cometCount <= mkInt && start == false)
         {
             for (int i = 0; i < mkSpeed; i++) //mkSpeed個生成
             {
@@ -32,15 +33,13 @@ public class CreateComet : MonoBehaviour {
                 comet.transform.parent = comet_.transform;
                 cometCount++;
 
-                if(cometCount >= mkInt)
+                if (cometCount >= mkInt)
                 {
+                    startTF = true;
+                    start = true;
                     break;
                 }
             }
-        }
-        else
-        {
-            startTF = true;
         }
 	}
 }
