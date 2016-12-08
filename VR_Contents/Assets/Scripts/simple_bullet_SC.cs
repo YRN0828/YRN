@@ -8,6 +8,8 @@ public class simple_bullet_SC : MonoBehaviour {
     public int Timecount=0;
     float z;
 
+    public int team = 0;//チーム 0:プレイヤー 1:エネミー
+
 	// Use this for initialization
 	void Start () {
         z = transform.position.z;
@@ -22,4 +24,6 @@ public class simple_bullet_SC : MonoBehaviour {
             Destroy(this.gameObject);
         }
     }
+
+
 }
