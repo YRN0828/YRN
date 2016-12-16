@@ -28,8 +28,10 @@ public class CreateComet : MonoBehaviour {
         {
             for (int i = 0; i < mkSpeed; i++) //mkSpeed個生成
             {
+                float randomScale = Random.Range(1.0f, 10.0f);
                 transform.position = new Vector3(Random.Range(-spawnPoint, spawnPoint), Random.Range(-spawnPoint, spawnPoint), Random.Range(-spawnPoint, spawnPoint));
                 comet = (GameObject)Instantiate(cometPrefab, transform.position, transform.rotation);
+                comet.gameObject.transform.localScale = new Vector3(randomScale, randomScale, randomScale);
                 comet.transform.parent = comet_.transform;
                 cometCount++;
 

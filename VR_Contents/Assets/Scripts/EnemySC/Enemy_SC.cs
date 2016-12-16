@@ -42,4 +42,19 @@ public class Enemy_SC : MonoBehaviour {
         //naviの値を元に戻す
         
     }
+
+    
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "P_bullet")
+        {
+            HP--;
+            Destroy(collision.gameObject);
+            if (HP <= 0)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+    }
 }
