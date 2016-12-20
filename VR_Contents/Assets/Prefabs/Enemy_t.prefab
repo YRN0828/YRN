@@ -102,5 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff6ae928d66e364cbe91021d6ac836d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 10
+  HP: 50
   speed: 0.1
+  simple_bullet: {fileID: 0}
+  hassyakou: {fileID: 0}
