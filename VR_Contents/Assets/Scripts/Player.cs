@@ -4,13 +4,14 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
     private bool start = false;
-    public float speed;
+    public float speed = 0;
     public float rotaF;
 
     public int moveType = 0;
 
     public GameObject simplebullet;
     GameObject hassyakou;//バルカン発射口？
+    GameObject hassyakou2;//バルカン発射口2？
 
     private int stayFire;
     public int stayTime = 20;
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour {
     {
         cameraObject = GameObject.Find("Main Camera");
         hassyakou = transform.FindChild("hassyakou").gameObject;
+        hassyakou2 = transform.FindChild("hassyakou2").gameObject;
 
         playerMove = GetComponent<PlayerMove>();
 
@@ -58,6 +60,7 @@ public class Player : MonoBehaviour {
         if (Input.GetButton(buttonName:"Fire1") && stayFire == stayTime)
         {
             Instantiate(simplebullet, hassyakou.transform.position, hassyakou.transform.rotation);
+            Instantiate(simplebullet, hassyakou2.transform.position, hassyakou2.transform.rotation);
             stayFire = 0;
         }
     }
@@ -66,13 +69,8 @@ public class Player : MonoBehaviour {
     {
         if(collision.gameObject.name == "SComet(Clone)")
         {
-            speed = 0;
             start = false;
-
-        }
-        else
-        {
-
+            GameObject.Find("CreateComet").GetComponent<CreateComet>().startTF = false;
         }
     }
 }

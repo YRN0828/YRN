@@ -13,21 +13,12 @@ public class ShowFPS : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        //timeCount = 0;
-
         timeLeft = updateInterval;
 	}
 
     // Update is called once per frame
     void Update()
-    {/*
-        timeCount++;
-        if (timeCount >= 20)
-        {
-            this.GetComponent<Text>().text = (1 / Time.deltaTime).ToString() + "fps";
-            timeCount = 0;
-        }*/
-
+    {
         timeLeft -= Time.deltaTime;
         accum += Time.timeScale / Time.deltaTime;
         ++frames;
